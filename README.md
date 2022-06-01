@@ -115,3 +115,24 @@
     - 多依赖传入时，代码阅读困难
     - 无法支持大规模的模块化开发
     - 无特定语法支持，代码简陋
+
+## CommonJS 规范介绍
+
+- Node.js 默认模块化规范，每个文件就是一个模块，有自己的作用域
+- Node 中 CJS 模块加载采用同步加载方式
+- 通过 require 加载模块，通过 exports 或 module.exports 输出模块
+
+### CommonJS 规范特点
+
+- 所有代码都运行在模块作用域，不会污染全局作用域。
+- 模块可以多次加载，第一次加载时会运行模块，模块输出结果会被缓存，再次加载时，会从缓存结果中直接读取模块输出结果。
+- 模块加载的顺序，按照其在代码中出现的顺序。
+- 模块输出的值是值的拷贝，类似 IIFE 方案中的内部变量
+
+```js
+// Node CommonJS 原理
+// IIEF
+;(function (require, module, exports, __filename, __dirname) {
+  // TODO
+})(require, module, exports, __filename, __dirname)
+```
