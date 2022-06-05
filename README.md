@@ -169,3 +169,56 @@
 - ESM 通过 import 加载模块，通过 export 输出模块
 
 ### CommonJS 和 ESModule 规范对比
+
+- CommonJS 模块输出的是值的拷贝，ES6 模块输出的是值的引用
+- CommonJS 模块是运行时加载，ES6 模块是编译时输出接口
+- CommonJS 是单个值导出，ES6 module 可以导出多个
+- CommonJS 模块为同步加载，ES6 Module 支持异步加载
+- CommonJS 的 this 是当前模块，ES6 Module 的 this 是 undefined
+- CommonJS 和 ES6 Module 的语法不同
+
+### 脚本和模块比对
+
+- 模块具备更高的开发效率（可读性强、复用高效）
+- 脚本具有更高的页面性能（模块文件多、加载速度慢）
+- 模块在浏览器中运行会存在兼容性问题，要特别注意
+
+### 浏览器模块化的局限
+
+- 缺乏模块管理能力，模块分散在各个项目中
+- 性能加载慢，无法大型项目中直接使用
+- 这两个问题是 npm 和 webpack 核心解决的问题
+
+## 前端工程化关键技术之 npm + webpack 原理
+
+### npm 诞生背景
+
+- npm 由程序员 Isaac 发明
+- 初步实现思路
+  - 集中管理所有模块，所有模块都上传到仓库 registry
+  - 模块内创建 package.json 标注模块的基本信息
+  - 通过 npm publish 发布模块，上传到 registry
+  - 通过 npm install 安装模块，模块安装到 node_modules 目录
+
+#### npm 介绍
+
+- npm 解决的核心问题是模块管理问题
+- npm 包含 cli、模块仓库、官网三大部分
+
+#### npm 原理总结
+
+- npm init 创建模块，npm install 安装模块，npm publish 发布模块
+- npm link 本地开发，npm config 调整配置，npm run 调用 scripts
+- npm 规范：package.json 管理模块信息，node_modules 保存依赖
+
+#### npm 的局限
+
+- npm 只能解决模块的搞笑管理和获取问题
+- npm 无法解决性能加载性能问题
+- 模块化发明后，制约其广泛应用的因素是性能问题
+
+### webpack 诞生背景
+
+- 最初的 webpack 核心解决的问题就是代码合并与拆分
+- webpack 的核心理念是将资源都视为模块，统一进行打包和处理
+- webpack 提供了 loader 和 plugins 完成功能扩展
