@@ -36,7 +36,7 @@ a {
 	text-decoration: none;
 	outline: none;
 	color: #262626;
-	blr: expression(this.onFocus=this.blur());
+	/* blr: expression(this.onFocus=this.blur()); */
 }
 
 
