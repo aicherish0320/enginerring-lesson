@@ -242,5 +242,11 @@
   - 配置 package.json 的 build 命令
   - 执行 npm run build 打包
 - 首页移植
+  - 资源文件拷贝
+  - 删除 index.html 中的 link 和 script
+  - 安装 html-webpack-plugin 插件
+  - 配置 html-webpack-plugin
+  - 在 src/index.js 中添加 js 引用
+  - 调整 index.html 中的图片路径
 - 登录页移植
 - 进阶操作
