@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "bundle.js",
+  "mappings": "AAAAA,QAAQC,IAAI",
+  "sources": [
+    "webpack://webpack-demo/./src/index.js"
+  ],
+  "sourcesContent": [
+    "console.log('Hello')\n"
+  ],
+  "names": [
+    "console",
+    "log"
+  ],
+  "sourceRoot": ""
+}
