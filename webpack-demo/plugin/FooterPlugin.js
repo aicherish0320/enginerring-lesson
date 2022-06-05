@@ -2,7 +2,6 @@ const { ConcatSource } = require('webpack-sources')
 
 class FooterPlugin {
   constructor(options) {
-    console.log('>>> ', options)
     this.options = options
   }
   apply(compiler) {
@@ -18,7 +17,6 @@ class FooterPlugin {
             )
           }
         }
-        console.log('chunks >>> ', chunks)
       })
     })
   }
