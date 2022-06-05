@@ -229,3 +229,18 @@
 - css 和 js 源码未压缩
 - 开发模式陈旧，需要同时维护 html、js 和 css，代码逻辑和结构不清晰，迭代困难
 - 项目不支持 source-map，调试困难，手动维护 source-map 成本大
+
+### 项目改造
+
+#### 第一阶段：项目 webpack 改造
+
+- 项目初始化
+  - 创建 npm 项目
+  - 安装 webpack 依赖
+  - 创建 js 入口文件
+  - 创建 webpack 配置文件
+  - 配置 package.json 的 build 命令
+  - 执行 npm run build 打包
+- 首页移植
+- 登录页移植
+- 进阶操作
