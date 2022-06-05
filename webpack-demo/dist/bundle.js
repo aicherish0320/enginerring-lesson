@@ -642,4 +642,5 @@ console.log('Hello')
 
 /******/ })()
 ;
+/* footer */
 //# sourceMappingURL=bundle.js.map
