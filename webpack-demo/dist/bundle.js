@@ -1,6 +1,26 @@
+/*! banner */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/test.ac":
+/*!*********************!*\
+  !*** ./src/test.ac ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  a: 1,
+  b: 2
+});
+
+
+/***/ }),
 
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/index.css":
 /*!*************************************************************!*\
@@ -611,8 +631,11 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.css */ "./src/index.css");
+/* harmony import */ var _test_ac__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.ac */ "./src/test.ac");
 
 
+
+console.log(_test_ac__WEBPACK_IMPORTED_MODULE_1__["default"])
 console.log('Hello')
 
 })();

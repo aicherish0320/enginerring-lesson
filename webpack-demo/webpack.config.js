@@ -1,4 +1,6 @@
 const path = require('path')
+const webpack = require('webpack')
+const FooterPlugin = require('./plugin/FooterPlugin')
 
 module.exports = {
   mode: 'development',
@@ -11,9 +13,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.css$/,
+        test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.ac$/,
+        use: [path.resolve(__dirname, './loader/acLoader.js')]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: 'banner'
+    }),
+    new FooterPlugin({
+      banner: 'footer'
+    })
+  ]
 }
