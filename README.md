@@ -136,3 +136,15 @@
   // TODO
 })(require, module, exports, __filename, __dirname)
 ```
+
+### CommonJS 模块打包
+
+- 安装 browserify: `npm install browserify -g`
+- 模块打包命令：`browserify module_test/cjs/entry.js -o dist/bundle.js`
+- 注意，当存在多个模块时，每个模块都需要单独打包
+
+#### browserify 打包原理
+
+- 本质还是通过自执行函数实现模块化
+- 将每个模块编号，存入一个对象，每个模块标记依赖模块
+- 实现了 require 方法，核心是通过 call 方法调用模块，并传入 require、module、exports 方法，通过 module 存储模块信息，通过 exports 存储模块输出信息
