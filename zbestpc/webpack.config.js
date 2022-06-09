@@ -26,7 +26,19 @@ module.exports = {
   },
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 300 * 1024,
+      name: 'common',
+      cacheGroups: {
+        jquery: {
+          name: 'jquery',
+          test: /jquery/,
+          chunks: 'all'
+        }
+      }
+    }
   },
   module: {
     rules: [

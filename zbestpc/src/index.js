@@ -5,6 +5,9 @@ import 'jquery'
 import './js/public'
 import './js/nav'
 
+import { get } from 'lodash-es'
+console.log(get({ a: 1 }, 'a'))
+
 // treeShaking触发条件
 // 1. 通过解构的方法获取方法，可以触发 treeShaking
 // 2. 调用的 npm 包必须使用 ESM
