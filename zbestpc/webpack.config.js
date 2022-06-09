@@ -3,9 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ProvidePlugin } = require('webpack')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: {
     index: './src/index.js',
     login: './src/login.js'
@@ -21,6 +23,10 @@ module.exports = {
     compress: true,
     port: '3001',
     hot: true
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
   },
   module: {
     rules: [
