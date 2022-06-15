@@ -1,0 +1,20 @@
+<template>
+  <div id="#app">
+    {{ message }}
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        message: 'Hello'
+      }
+    },
+  }
+</script>
+
+<style scoped>
+
+</style>
