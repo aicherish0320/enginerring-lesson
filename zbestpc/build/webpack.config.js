@@ -5,7 +5,6 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -15,7 +14,8 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../dist'),
+    clean: true
   },
   devServer: {
     static: {
@@ -96,6 +96,5 @@ module.exports = {
       filename: 'css/[name].css',
       chunkFilename: 'css/[name].chunk.css'
     }),
-    new CleanWebpackPlugin()
   ]
 }

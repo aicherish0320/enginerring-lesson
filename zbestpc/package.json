@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
-    "build": "webpack -c build/webpack.config.js"
+    "dev:vue": "webpack-dev-server -c build/webpack.vue.config.js",
+    "build": "webpack -c build/webpack.config.js",
+    "build:vue": "webpack -c build/webpack.vue.config.js"
   },
   "keywords": [],
   "author": "",
