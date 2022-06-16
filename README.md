@@ -252,6 +252,15 @@
 - 进阶操作
 
 #### 项目优化进阶之多 js 分离
+
 #### 性能优化之 bundle 剥离 css 资源
+
 #### 性能优化之 bundle - js css 压缩、treeShaking
-#### 性能优化之 splitChunk  特性
+
+#### 性能优化之 splitChunk 特性
+
+## Vue2-elm 项目工程化升级
+
+- Vue 改造升级
+- webpack 打包改造
+- 项目打包构建优化
