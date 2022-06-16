@@ -8,8 +8,8 @@
           </h1>
           <div class="fr clearfix" id="top1">
             <p class="fl">
-              <!-- <a id="login" @click="jumpToLogin">登录</a> -->
-              <a id="login" href="login.html">登录</a>
+              <a id="login" @click="jumpToLogin">登录</a>
+              <!-- <a id="login" href="login.html">登录</a> -->
               <a href="#" id="reg">注册</a>
             </p>
             <form action="#" method="get" class="fl">
@@ -435,13 +435,24 @@ import './css/index.css'
 import 'jquery'
 import './js/public'
 import './js/nav'
+import { useRouter } from 'vue-router'
 export default {
   name: 'Home',
-  methods: {
-    jumpToLogin() {
-      this.$router.push('/login')
+  setup() {
+    const router = useRouter()
+    const jumpToLogin = () => {
+      router.push('/login')
     }
-  },
+
+    return {
+      jumpToLogin
+    }
+  }
+  // methods: {
+  //   jumpToLogin() {
+  //     this.$router.push('/login')
+  //   }
+  // },
 }
 </script>
 

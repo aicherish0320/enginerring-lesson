@@ -95,9 +95,8 @@ const config = {
       filename: 'css/[name].css',
       chunkFilename: 'css/[name].chunk.css'
     }),
-    new VueLoaderPlugin
+    new VueLoaderPlugin()
   ]
 }
-
 
 module.exports = config
