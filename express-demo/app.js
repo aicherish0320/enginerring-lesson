@@ -53,4 +53,13 @@ app.use((req, res, next) => {
   console.error('异常后面的正常中间件')
 })
 
+// 全局异常捕获
+process.on('uncaughtException', (err) => {
+  console.error('uncaughtException >>> ', err.message)
+})
+// 全局 promise 异常捕获
+process.on('unhandledRejection', (err) => {
+  console.log('unhandledRejection >>> ', err.message)
+})
+
 app.listen(3001, () => console.log('port 3001'))
