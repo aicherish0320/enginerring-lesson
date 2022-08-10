@@ -288,3 +288,26 @@
   - 需要生产统一的工程化脚手架，解决项目创建、运行、打包、项目模版代码问题
 
 ### 脚手架原理
+
+> 什么是脚手架？
+
+- 操作系统的可执行文件，可以通过 C、C++、Java、JavaScript（Node.js）、Python、Ruby 等各种语言编写
+
+#### 脚手架执行流程：
+
+> `vue create project` -> 在环境变量 `$path` 中查询 vue 命令 (相当于执行 `which vue`) -> 查询实际链接文件 -> 通过 `/usr/bin/env node` 执行文件
+
+- 环境变量：相当于操作系统级别的全局变量
+- 软连接：相当于 windows 系统的快捷方式
+- vue、which、env、node 本质都是脚手架
+
+#### 脚手架执行原理总结
+
+- 在终端输入 `vue create project`
+- 终端解析出 `vue` 命令
+- 终端在环境变量中找到 `vue` 命令
+- 终端根据 `vue` 命令链接到实际文件 `vue.js`
+- 终端利用 `node` 执行 `vue.js`
+- `vue.js` 解析 `command/options`
+- `vue.js` 执行 `command`
+- 执行完毕，退出执行
