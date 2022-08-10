@@ -1,7 +1,19 @@
 #! /usr/bin/env node
 
+const fs = require('fs')
 const parse = require('./parseArgs')
+
+const dir = process.cwd()
 
 const { args, isAll, isList } = parse()
 
-console.log('isAll >>> ', args, isAll, isList)
+if (!isAll && !isList) {
+  let files = fs.readdirSync(dir)
+  let output = ''
+
+  files
+    .filter((file) => !file.startsWith('.'))
+    .forEach((file) => (output += `${file}\t`))
+
+  console.log(output)
+}
