@@ -311,3 +311,13 @@
 - `vue.js` 解析 `command/options`
 - `vue.js` 执行 `command`
 - 执行完毕，退出执行
+
+### 脚手架开发入门
+
+脚手架开发流程
+
+- 创建 `npm` 项目
+- 创建脚手架入口文件，最上方添加 `#! /usr/bin/env node`
+- 配置 `package.json`，添加 `bin` 属性
+- 编写脚手架代码
+- 将脚手架发布到 `npm`
