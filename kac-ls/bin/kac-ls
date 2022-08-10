@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 
 const fs = require('fs')
+const auth = require('./auth')
+const getFileType = require('./getFileType')
 const parse = require('./parseArgs')
 
 const dir = process.cwd()
@@ -18,9 +20,27 @@ if (!isList) {
 
   console.log(output)
 } else {
-  files.forEach((file, index) =>
-    index !== files.length - 1 ? (output += `${file}\n`) : (output += file)
-  )
+  // 0001: File
+  // 0100: Directory
+  // bin: 16877  => 0100 0001 1110 1101
+  // package: 33188 => 1000 0001 1010 0100
+  // bin:16384: 0100 0000 0000 0000
+  // package.json : 32768:1000 0000 0000 0000
+  files.forEach((file, index) => {
+    const stat = fs.statSync(file)
+    const mode = stat.mode
+    const fileType = getFileType(mode)
+    const authString = auth(mode)
+    if (index === file.length - 1) {
+      output += fileType+authString + '\t' + file
+    } else {
+      output += fileType+authString + '\t' + file + '\n'
+    }
+    // const isDir = mode & fs.constants.S_IFDIR
+    // const isFile = mode & fs.constants.S_IFREG
+    // console.log(file, ' >>> ', mode.toString(2), isFile.toString(2))
+    // index !== files.length - 1 ? (output += `${file}\n`) : (output += file)
+  })
 
   console.log(output)
 }
