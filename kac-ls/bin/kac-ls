@@ -5,15 +5,22 @@ const parse = require('./parseArgs')
 
 const dir = process.cwd()
 
-const { args, isAll, isList } = parse()
+const { isAll, isList } = parse()
+let files = fs.readdirSync(dir)
+let output = ''
 
-if (!isAll && !isList) {
-  let files = fs.readdirSync(dir)
-  let output = ''
+if (!isAll) {
+  files = files.filter((file) => !file.startsWith('.'))
+}
 
-  files
-    .filter((file) => !file.startsWith('.'))
-    .forEach((file) => (output += `${file}\t`))
+if (!isList) {
+  files = files.forEach((file) => (output += `${file}          `))
+
+  console.log(output)
+} else {
+  files.forEach((file, index) =>
+    index !== files.length - 1 ? (output += `${file}\n`) : (output += file)
+  )
 
   console.log(output)
 }
