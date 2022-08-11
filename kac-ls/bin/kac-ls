@@ -3,6 +3,7 @@
 const fs = require('fs')
 const auth = require('./auth')
 const getFileType = require('./getFileType')
+const getFileUser = require('./getFileUser')
 const parse = require('./parseArgs')
 
 const dir = process.cwd()
@@ -29,17 +30,14 @@ if (!isList) {
   files.forEach((file, index) => {
     const stat = fs.statSync(file)
     const mode = stat.mode
-    const fileType = getFileType(mode)
+    const fileType =  getFileType(mode)
     const authString = auth(mode)
+    const fileUser = getFileUser(stat)
     if (index === file.length - 1) {
-      output += fileType+authString + '\t' + file
+      output += fileType + authString + '\t' + fileUser + '\t' + file
     } else {
-      output += fileType+authString + '\t' + file + '\n'
+      output += fileType + authString + '\t' + fileUser + '\t' + file + '\n'
     }
-    // const isDir = mode & fs.constants.S_IFDIR
-    // const isFile = mode & fs.constants.S_IFREG
-    // console.log(file, ' >>> ', mode.toString(2), isFile.toString(2))
-    // index !== files.length - 1 ? (output += `${file}\n`) : (output += file)
   })
 
   console.log(output)
