@@ -30,15 +30,23 @@ if (!isList) {
   // package.json : 32768:1000 0000 0000 0000
   files.forEach((file, index) => {
     const stat = fs.statSync(file)
+    const isDirectory = stat.isDirectory(file)
     const mode = stat.mode
     const fileType = getFileType(mode)
     const authString = auth(mode)
     const fileUser = getFileUser(stat)
     const fileSizeAndDate = getFileSizeAndDate(stat)
+    let size = 1
+    if (isDirectory) {
+      const subDir = fs.readdirSync(file)
+      size = subDir.length
+    }
     if (index === file.length - 1) {
       output +=
         fileType +
         authString +
+        '\t' +
+        size +
         '\t' +
         fileUser +
         '\t' +
@@ -49,6 +57,8 @@ if (!isList) {
       output +=
         fileType +
         authString +
+        '\t' +
+        size +
         '\t' +
         fileUser +
         '\t' +
